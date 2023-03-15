@@ -51,7 +51,7 @@
         <item name="textAppearanceLabelSmall">@style/TextAppearance.App.LabelSmall</item>
 
         <!--System/Platform attributes-->
-        <item name="android:textColorHighlight">@color/getkons_orange_300</item>
+        <item name="android:textColorHighlight">@color/app_orange_300</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:windowBackground">?android:colorBackground</item>

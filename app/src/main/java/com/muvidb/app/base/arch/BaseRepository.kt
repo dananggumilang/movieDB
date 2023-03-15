@@ -6,7 +6,7 @@ import com.muvidb.app.base.wrapper.DataResource
 import com.muvidb.app.base.exception.ApiErrorException
 import com.muvidb.app.base.exception.NoInternetConnectionException
 import com.muvidb.app.base.exception.UnexpectedErrorException
-import com.muvidb.app.data.network.response.MovieResponse
+import com.muvidb.app.data.network.model.response.MovieResponse
 import okhttp3.ResponseBody
 import org.koin.java.KoinJavaComponent
 import org.koin.java.KoinJavaComponent.inject

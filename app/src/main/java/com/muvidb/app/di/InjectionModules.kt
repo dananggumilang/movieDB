@@ -6,9 +6,9 @@ import com.muvidb.app.data.network.datasource.MovieNetworkDataSource
 import com.muvidb.app.data.network.datasource.MovieNetworkDataSourceImpl
 import com.muvidb.app.data.repository.MovieRepository
 import com.muvidb.app.data.repository.MovieRepositoryImpl
-import com.muvidb.app.domain.GetAllMoviesUseCase
-import com.muvidb.app.domain.GetDetailMovieUseCase
-import com.muvidb.app.domain.GetMovieByGenreUseCase
+import com.muvidb.app.domain.GetPlayingMoviesUseCase
+import com.muvidb.app.domain.GetMoviesByGenreUseCase
+import com.muvidb.app.domain.GetMovieTrailersUseCase
 import com.muvidb.app.ui.feature.detailmovie.DetailMovieViewModel
 import com.muvidb.app.ui.feature.home.HomeViewModel
 import kotlinx.coroutines.Dispatchers
@@ -37,9 +37,9 @@ object InjectionModules {
     }
 
     private val useCases = module {
-        single { GetAllMoviesUseCase(get(), Dispatchers.IO) }
-        single { GetDetailMovieUseCase(get(), Dispatchers.IO) }
-        single { GetMovieByGenreUseCase(get(), Dispatchers.IO) }
+        single { GetPlayingMoviesUseCase(get(), Dispatchers.IO) }
+        single { GetMoviesByGenreUseCase(get(), Dispatchers.IO) }
+        single { GetMovieTrailersUseCase(get(), Dispatchers.IO) }
     }
 
     private val viewModels = module {
