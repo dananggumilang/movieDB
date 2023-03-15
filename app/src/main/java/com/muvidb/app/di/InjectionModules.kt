@@ -4,13 +4,12 @@ import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.muvidb.app.data.network.service.ApiService
 import com.muvidb.app.data.network.datasource.MovieNetworkDataSource
 import com.muvidb.app.data.network.datasource.MovieNetworkDataSourceImpl
+import com.muvidb.app.data.network.service.RequestInterceptor
 import com.muvidb.app.data.repository.MovieRepository
 import com.muvidb.app.data.repository.MovieRepositoryImpl
-import com.muvidb.app.domain.GetPlayingMoviesUseCase
-import com.muvidb.app.domain.GetMoviesByGenreUseCase
-import com.muvidb.app.domain.GetMovieTrailersUseCase
+import com.muvidb.app.domain.*
 import com.muvidb.app.ui.feature.detailmovie.DetailMovieViewModel
-import com.muvidb.app.ui.feature.home.HomeViewModel
+import com.muvidb.app.ui.feature.home.ui.HomeViewModel
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModelOf
@@ -25,7 +24,8 @@ object InjectionModules {
 
     private val network = module {
         single { ChuckerInterceptor.Builder(androidContext()).build() }
-        single { ApiService.invoke(get()) }
+        single { RequestInterceptor() }
+        single { ApiService.invoke(get(), get()) }
     }
 
     private val dataSource = module {
@@ -38,6 +38,8 @@ object InjectionModules {
 
     private val useCases = module {
         single { GetPlayingMoviesUseCase(get(), Dispatchers.IO) }
+        single { GetPopularMoviesUseCase(get(), Dispatchers.IO) }
+        single { GetUpComingMoviesUseCase(get(), Dispatchers.IO) }
         single { GetMoviesByGenreUseCase(get(), Dispatchers.IO) }
         single { GetMovieTrailersUseCase(get(), Dispatchers.IO) }
     }

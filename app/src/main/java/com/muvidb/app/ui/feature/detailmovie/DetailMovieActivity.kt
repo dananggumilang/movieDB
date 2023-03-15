@@ -9,11 +9,15 @@ class DetailMovieActivity: BaseActivity<ActivityDetailMovieBinding, DetailMovieV
     override val viewModel: DetailMovieViewModel by viewModel()
 
     override fun initView() {
-        // TODO: Get Detail Movies
+        // TODO: Set UI from Parcelable
     }
 
     override fun observeData() {
         // TODO: Observe Data From View Model
+    }
+
+    override fun initData() {
+        // TODO: Get Movie Trailer
     }
 
 }

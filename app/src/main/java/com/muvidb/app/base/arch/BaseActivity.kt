@@ -20,10 +20,13 @@ abstract class BaseActivity<B : ViewBinding, VM : ViewModel>(
         binding = bindingFactory(layoutInflater)
         setContentView(binding.root)
         initView()
+        initData()
         observeData()
     }
 
     abstract fun initView()
+
+    abstract fun initData()
 
     open fun observeData() {
 
