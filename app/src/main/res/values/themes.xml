@@ -1,0 +1,61 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    // Base application theme
+    <style name="Base.Theme.MuviDb" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/app_orange_500</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorSurface">@color/app_neutral_10</item>
+        <item name="colorError">@color/app_red_500</item>
+        <item name="colorOutline">@color/app_neutral_40</item>
+
+        <item name="colorOnPrimary">@color/app_neutral_10</item>
+        <item name="colorOnSurface">@color/app_neutral_100</item>
+        <item name="colorOnSurfaceVariant">@color/app_neutral_60</item>
+        <item name="colorOnError">@color/app_red_500</item>
+        <item name="colorOnErrorContainer">@color/app_red_500</item>
+
+        // Typography
+        <!--Regular 57sp-->
+        <!--Regular 45sp-->
+        <!--Regular 36sp-->
+        <item name="textAppearanceDisplayLarge">@style/TextAppearance.App.DisplayLarge</item>
+        <item name="textAppearanceDisplayMedium">@style/TextAppearance.App.DisplayMedium</item>
+        <item name="textAppearanceDisplaySmall">@style/TextAppearance.App.DisplaySmall</item>
+
+        <!--Regular 32sp-->
+        <!--Regular 28sp-->
+        <!--Regular 24sp-->
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.App.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.App.HeadlineMedium</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.App.HeadlineSmall</item>
+
+        <!--Regular 22sp-->
+        <!--Medium 16sp-->
+        <!--Medium 14sp-->
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.App.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.App.TitleMedium</item>
+        <item name="textAppearanceTitleSmall">@style/TextAppearance.App.TitleSmall</item>
+
+        <!--Regular 16sp-->
+        <!--Regular 14sp-->
+        <!--Regular 12sp-->
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.App.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.App.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.App.BodySmall</item>
+
+        <!--Medium 14sp-->
+        <!--Medium 12sp-->
+        <!--Medium 11sp-->
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.App.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.App.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.App.LabelSmall</item>
+
+        <!--System/Platform attributes-->
+        <item name="android:textColorHighlight">@color/getkons_orange_300</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">?android:colorBackground</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
+    </style>
+
+</resources>
