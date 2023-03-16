@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.feature.genreslist.GenresListActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_adventure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/iv_adventure"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="32dp"
+            android:src="@drawable/ic_baseline_hiking" />
+
+        <TextView
+            android:id="@+id/tv_adventure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="@string/adventure"
+            android:textAppearance="@style/TextAppearance.App.TitleLarge"
+            android:textColor="@color/app_neutral_90" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_animation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_adventure">
+
+        <ImageView
+            android:id="@+id/iv_animation"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="32dp"
+            android:src="@drawable/ic_baseline_cruelty_free" />
+
+        <TextView
+            android:id="@+id/tv_animation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="@string/animation"
+            android:textAppearance="@style/TextAppearance.App.TitleLarge"
+            android:textColor="@color/app_neutral_90" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_comedy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_animation">
+
+        <ImageView
+            android:id="@+id/iv_comedy"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="32dp"
+            android:src="@drawable/ic_baseline_mood" />
+
+        <TextView
+            android:id="@+id/tv_comedy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="@string/comedy"
+            android:textAppearance="@style/TextAppearance.App.TitleLarge"
+            android:textColor="@color/app_neutral_90" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_documentary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_comedy">
+
+        <ImageView
+            android:id="@+id/iv_documentary"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="32dp"
+            android:src="@drawable/ic_baseline_videocam" />
+
+        <TextView
+            android:id="@+id/tv_documentary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="@string/documentary"
+            android:textAppearance="@style/TextAppearance.App.TitleLarge"
+            android:textColor="@color/app_neutral_90" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_drama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_documentary">
+
+        <ImageView
+            android:id="@+id/iv_drama"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="32dp"
+            android:src="@drawable/ic_baseline_heart_broken" />
+
+        <TextView
+            android:id="@+id/tv_drama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="@string/drama"
+            android:textAppearance="@style/TextAppearance.App.TitleLarge"
+            android:textColor="@color/app_neutral_90" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_horror"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_drama">
+
+        <ImageView
+            android:id="@+id/iv_horror"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="32dp"
+            android:src="@drawable/ic_baseline_content_cut" />
+
+        <TextView
+            android:id="@+id/tv_horror"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="@string/horror"
+            android:textAppearance="@style/TextAppearance.App.TitleLarge"
+            android:textColor="@color/app_neutral_90" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_music"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_horror">
+
+        <ImageView
+            android:id="@+id/iv_music"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="32dp"
+            android:src="@drawable/ic_baseline_music_note" />
+
+        <TextView
+            android:id="@+id/tv_music"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="@string/music"
+            android:textAppearance="@style/TextAppearance.App.TitleLarge"
+            android:textColor="@color/app_neutral_90" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

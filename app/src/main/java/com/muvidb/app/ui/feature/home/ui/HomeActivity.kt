@@ -1,8 +1,10 @@
 package com.muvidb.app.ui.feature.home.ui
 
+import android.content.Intent
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.muvidb.app.base.arch.BaseActivity
 import com.muvidb.app.databinding.ActivityHomeBinding
+import com.muvidb.app.ui.feature.genreslist.GenresListActivity
 import com.muvidb.app.ui.feature.home.adapter.PlayingMovieAdapter
 import com.muvidb.app.ui.feature.home.adapter.PopularMovieAdapter
 import com.muvidb.app.ui.feature.home.adapter.UpComingMovieAdapter
@@ -20,6 +22,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(ActivityHo
         viewModel.getPlayingMovies()
         viewModel.getPopularMovies()
         viewModel.getUpComingMovies()
+
+        binding.ivMenu.setOnClickListener {
+            startActivity(Intent(this, GenresListActivity::class.java))
+        }
     }
 
     override fun initView() {

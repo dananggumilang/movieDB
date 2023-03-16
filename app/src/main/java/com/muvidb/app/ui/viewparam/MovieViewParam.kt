@@ -12,5 +12,6 @@ data class MovieViewParam(
     var popularity: Double,
     var vote_count: Int,
     var video: Boolean,
-    var vote_average: Double
+    var vote_average: Double,
+    var isFavorite: Boolean = false
 )

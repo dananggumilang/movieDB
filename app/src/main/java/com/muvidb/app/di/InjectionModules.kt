@@ -1,9 +1,10 @@
 package com.muvidb.app.di
 
 import com.chuckerteam.chucker.api.ChuckerInterceptor
-import com.muvidb.app.data.network.service.ApiService
+import com.muvidb.app.data.local.MovieDatabase
 import com.muvidb.app.data.network.datasource.MovieNetworkDataSource
 import com.muvidb.app.data.network.datasource.MovieNetworkDataSourceImpl
+import com.muvidb.app.data.network.service.ApiService
 import com.muvidb.app.data.network.service.RequestInterceptor
 import com.muvidb.app.data.repository.MovieRepository
 import com.muvidb.app.data.repository.MovieRepositoryImpl
@@ -19,7 +20,8 @@ object InjectionModules {
     fun getModules() = listOf(database, network, dataSource, repository, useCases, viewModels)
 
     private val database = module {
-
+        single { get<MovieDatabase>().movieDao() }
+        single { MovieDatabase.create(androidContext()) }
     }
 
     private val network = module {
@@ -33,7 +35,7 @@ object InjectionModules {
     }
 
     private val repository = module {
-        single<MovieRepository> { MovieRepositoryImpl(get()) }
+        single<MovieRepository> { MovieRepositoryImpl(get(), get()) }
     }
 
     private val useCases = module {
