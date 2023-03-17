@@ -49,7 +49,7 @@ object InjectionModules {
         single { GetPopularMoviesUseCase(get(), Dispatchers.IO) }
         single { GetUpComingMoviesUseCase(get(), Dispatchers.IO) }
         single { GetMoviesByGenreUseCase(get(), Dispatchers.IO) }
-        single { GetMovieTrailersUseCase(get(), Dispatchers.IO) }
+        single { GetKeyMovieTrailerUseCase(get(), Dispatchers.IO) }
         single { GetFavouriteMoviesUseCase(get(), Dispatchers.IO) }
         single { AddFavoriteMovieUseCase(get(), Dispatchers.IO) }
         single { DeleteFavoriteMovieUseCase(get(), Dispatchers.IO) }

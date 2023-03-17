@@ -1,6 +1,7 @@
 package com.muvidb.app.data.network.datasource
 
 import com.muvidb.app.data.network.model.response.MovieResponse
+import com.muvidb.app.data.network.model.response.VideosResponse
 import com.muvidb.app.data.network.service.ApiService
 
 interface MovieNetworkDataSource {
@@ -8,7 +9,7 @@ interface MovieNetworkDataSource {
     suspend fun getPopularMovies() : MovieResponse
     suspend fun getUpComingMovies() : MovieResponse
     suspend fun getMoviesByGenres(genreId: Int) : MovieResponse
-    suspend fun getMovieTrailers(movieId: Int) : MovieResponse
+    suspend fun getKeyMovieTrailers(movieId: Int) : VideosResponse
 }
 
 class MovieNetworkDataSourceImpl(private val service: ApiService) : MovieNetworkDataSource {
@@ -16,5 +17,5 @@ class MovieNetworkDataSourceImpl(private val service: ApiService) : MovieNetwork
     override suspend fun getPopularMovies(): MovieResponse = service.getPopularMovies()
     override suspend fun getUpComingMovies(): MovieResponse = service.getUpComingMovies()
     override suspend fun getMoviesByGenres(genreId: Int): MovieResponse = service.getMoviesByGenre(genreId)
-    override suspend fun getMovieTrailers(movieId: Int): MovieResponse = service.getMovieVideos(movieId)
+    override suspend fun getKeyMovieTrailers(movieId: Int): VideosResponse = service.getKeyMovieTrailer(movieId)
 }

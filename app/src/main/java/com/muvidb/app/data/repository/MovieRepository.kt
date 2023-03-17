@@ -6,6 +6,7 @@ import com.muvidb.app.data.local.datasource.MovieLocalDataSource
 import com.muvidb.app.data.local.entity.MovieEntity
 import com.muvidb.app.data.network.datasource.MovieNetworkDataSource
 import com.muvidb.app.data.network.model.response.MovieResponse
+import com.muvidb.app.data.network.model.response.VideosResponse
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
@@ -14,7 +15,7 @@ interface MovieRepository {
     suspend fun getPopularMovies(): Flow<DataResource<MovieResponse>>
     suspend fun getUpComingMovies(): Flow<DataResource<MovieResponse>>
     suspend fun getMoviesByGenres(genreId: Int): Flow<DataResource<MovieResponse>>
-    suspend fun getMovieTrailers(movieId: Int): Flow<DataResource<MovieResponse>>
+    suspend fun getKeyMovieTrailers(movieId: Int): Flow<DataResource<VideosResponse>>
 
     suspend fun getFavoriteMovies(): Flow<DataResource<List<MovieEntity>>>
     suspend fun addFavoriteMovie(entity: MovieEntity): Flow<DataResource<Long>>
@@ -43,8 +44,8 @@ class MovieRepositoryImpl(
         emit(safeNetworkCall { movieNetworkDataSource.getMoviesByGenres(genreId) })
     }
 
-    override suspend fun getMovieTrailers(movieId: Int): Flow<DataResource<MovieResponse>> = flow {
-        emit(safeNetworkCall { movieNetworkDataSource.getMovieTrailers(movieId) })
+    override suspend fun getKeyMovieTrailers(movieId: Int): Flow<DataResource<VideosResponse>> = flow {
+        emit(safeNetworkCall { movieNetworkDataSource.getKeyMovieTrailers(movieId) })
     }
 
     override suspend fun getFavoriteMovies(): Flow<DataResource<List<MovieEntity>>> = flow {
