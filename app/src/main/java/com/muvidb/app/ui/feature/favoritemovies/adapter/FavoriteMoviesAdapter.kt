@@ -1,4 +1,4 @@
-package com.muvidb.app.ui.feature.home.adapter
+package com.muvidb.app.ui.feature.favoritemovies.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,7 @@ import com.muvidb.app.BuildConfig
 import com.muvidb.app.databinding.ListItemMovieBinding
 import com.muvidb.app.ui.viewparam.MovieViewParam
 
-class PlayingMovieAdapter(private val listener: (View, MovieViewParam)-> Unit): RecyclerView.Adapter<PlayingMovieAdapter.PlayingMovieViewHolder>() {
+class FavoriteMoviesAdapter(private val listener: (View, MovieViewParam)-> Unit): RecyclerView.Adapter<FavoriteMoviesAdapter.FavoriteMoviesViewHolder>() {
 
     private val items = mutableListOf<MovieViewParam>()
 
@@ -19,7 +19,7 @@ class PlayingMovieAdapter(private val listener: (View, MovieViewParam)-> Unit): 
         notifyDataSetChanged()
     }
 
-    inner class PlayingMovieViewHolder(private val binding : ListItemMovieBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class FavoriteMoviesViewHolder(private val binding : ListItemMovieBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindItem(movieViewParam: MovieViewParam, listener: (View, MovieViewParam) -> Unit) {
             binding.itemMovieName.text = movieViewParam.title
             binding.itemMovieImage.load(BuildConfig.IMAGE_URL + movieViewParam.poster_path)
@@ -27,11 +27,11 @@ class PlayingMovieAdapter(private val listener: (View, MovieViewParam)-> Unit): 
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlayingMovieViewHolder {
-        return PlayingMovieViewHolder(ListItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteMoviesViewHolder {
+        return FavoriteMoviesViewHolder(ListItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
-    override fun onBindViewHolder(holder: PlayingMovieViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: FavoriteMoviesViewHolder, position: Int) {
         holder.bindItem(items[position], listener)
     }
 

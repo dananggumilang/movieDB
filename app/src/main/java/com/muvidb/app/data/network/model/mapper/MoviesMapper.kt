@@ -4,7 +4,7 @@ import com.muvidb.app.data.network.model.response.ResultsItem
 import com.muvidb.app.ui.viewparam.MovieViewParam
 import com.muvidb.app.utils.mapper.ViewParamMapper
 
-object MovieMapper : ViewParamMapper<ResultsItem, MovieViewParam> {
+object MoviesMapper : ViewParamMapper<ResultsItem, MovieViewParam> {
     override fun toViewParam(dataObject: ResultsItem?): MovieViewParam = MovieViewParam(
         poster_path = dataObject?.posterPath.orEmpty(),
         overview = dataObject?.overview.orEmpty(),

@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.feature.detailmovie.DetailMovieActivity">
+    tools:context=".ui.feature.favoritemovies.ui.FavoriteMoviesActivity">
 
-    <ImageView
-        android:id="@+id/btn_favorite_movie"
-        android:layout_width="62dp"
-        android:layout_height="62dp"
-        android:background="@drawable/bg_circle_button"
-        android:padding="16dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_favorite_movies"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/ic_favorite_false" />
+        tools:listitem="@layout/list_item_movie" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

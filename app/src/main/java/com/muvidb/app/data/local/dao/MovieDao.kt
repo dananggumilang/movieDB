@@ -5,15 +5,15 @@ import com.muvidb.app.data.local.entity.MovieEntity
 
 @Dao
 interface MovieDao {
-    @Query("SELECT * FROM quotes")
-    suspend fun getFavoriteQuotes(): List<MovieEntity>
+    @Query("SELECT * FROM movies")
+    suspend fun getFavoriteMovies(): List<MovieEntity>
 
-    @Query("SELECT * FROM quotes WHERE id == :id LIMIT 1")
-    suspend fun getFavoriteQuotesByID(id : Int?): MovieEntity?
+    @Query("SELECT * FROM movies WHERE id == :id LIMIT 1")
+    suspend fun getFavoriteMoviesByID(id : Int?): MovieEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addFavoriteQuote(note: MovieEntity): Long
+    suspend fun addFavoriteMovie(note: MovieEntity): Long
 
     @Delete
-    suspend fun removeFavoriteQuote(note: MovieEntity): Int
+    suspend fun removeFavoriteMovie(note: MovieEntity): Int
 }

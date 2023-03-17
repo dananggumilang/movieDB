@@ -19,8 +19,8 @@ abstract class BaseActivity<B : ViewBinding, VM : ViewModel>(
         super.onCreate(savedInstanceState)
         binding = bindingFactory(layoutInflater)
         setContentView(binding.root)
-        initView()
         initData()
+        initView()
         observeData()
     }
 

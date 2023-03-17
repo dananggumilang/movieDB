@@ -1,17 +1,21 @@
 package com.muvidb.app.ui.viewparam
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class MovieViewParam(
     val id: Int,
-    var poster_path: String,
-    var overview: String,
-    var release_date: String,
-    var original_title: String,
-    var original_language: String,
-    var title: String,
-    var backdrop_path: String,
-    var popularity: Double,
-    var vote_count: Int,
-    var video: Boolean,
-    var vote_average: Double,
+    val poster_path: String,
+    val overview: String,
+    val release_date: String,
+    val original_title: String,
+    val original_language: String,
+    val title: String,
+    val backdrop_path: String,
+    val popularity: Double,
+    val vote_count: Int,
+    val video: Boolean,
+    val vote_average: Double,
     var isFavorite: Boolean = false
-)
+) : Parcelable

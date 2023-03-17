@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.muvidb.app.base.arch.BaseActivity
 import com.muvidb.app.databinding.ActivityHomeBinding
+import com.muvidb.app.ui.feature.detailmovie.DetailMovieActivity
+import com.muvidb.app.ui.feature.favoritemovies.ui.FavoriteMoviesActivity
 import com.muvidb.app.ui.feature.genreslist.GenresListActivity
 import com.muvidb.app.ui.feature.home.adapter.PlayingMovieAdapter
 import com.muvidb.app.ui.feature.home.adapter.PopularMovieAdapter
@@ -14,7 +16,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(ActivityHomeBinding::inflate) {
 
     override val viewModel: HomeViewModel by viewModel()
-    private val playingMovieAdapter = PlayingMovieAdapter()
+    private lateinit var playingMovieAdapter: PlayingMovieAdapter
     private val popularMovieAdapter = PopularMovieAdapter()
     private val upComingMovieAdapter = UpComingMovieAdapter()
 
@@ -22,17 +24,24 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(ActivityHo
         viewModel.getPlayingMovies()
         viewModel.getPopularMovies()
         viewModel.getUpComingMovies()
-
-        binding.ivMenu.setOnClickListener {
-            startActivity(Intent(this, GenresListActivity::class.java))
-        }
     }
 
     override fun initView() {
         setRecyclerView()
+
+        binding.ivMenu.setOnClickListener {
+            startActivity(Intent(this, FavoriteMoviesActivity::class.java))
+        }
     }
 
     private fun setRecyclerView() {
+
+        playingMovieAdapter = PlayingMovieAdapter { v, items ->
+            val intent = Intent(this, DetailMovieActivity::class.java)
+            intent.putExtra("MOVIE_ITEM", items)
+            startActivity(intent)
+        }
+
         with(binding.rvPlayingMovie) {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
             adapter = playingMovieAdapter

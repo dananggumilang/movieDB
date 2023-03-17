@@ -16,7 +16,10 @@ interface MovieRepository {
     suspend fun getMoviesByGenres(genreId: Int): Flow<DataResource<MovieResponse>>
     suspend fun getMovieTrailers(movieId: Int): Flow<DataResource<MovieResponse>>
 
-    suspend fun getFavoriteQuotes(): Flow<DataResource<List<MovieEntity>>>
+    suspend fun getFavoriteMovies(): Flow<DataResource<List<MovieEntity>>>
+    suspend fun addFavoriteMovie(entity: MovieEntity): Flow<DataResource<Long>>
+    suspend fun getFavoriteMovieById(id: Int?): Flow<DataResource<MovieEntity?>>
+    suspend fun deleteFavoriteMovie(entity: MovieEntity): Flow<DataResource<Int>>
 }
 
 class MovieRepositoryImpl(
@@ -25,7 +28,6 @@ class MovieRepositoryImpl(
 ) : Repository(), MovieRepository {
 
     override suspend fun getPlayingMovies(): Flow<DataResource<MovieResponse>> = flow {
-        println(movieNetworkDataSource.getPlayingMovies())
         emit(safeNetworkCall { movieNetworkDataSource.getPlayingMovies() })
     }
 
@@ -45,8 +47,20 @@ class MovieRepositoryImpl(
         emit(safeNetworkCall { movieNetworkDataSource.getMovieTrailers(movieId) })
     }
 
-    override suspend fun getFavoriteQuotes(): Flow<DataResource<List<MovieEntity>>> = flow {
-        emit(proceed { movieLocalDataSource.getFavouriteMovie() })
+    override suspend fun getFavoriteMovies(): Flow<DataResource<List<MovieEntity>>> = flow {
+        emit(proceed { movieLocalDataSource.getFavouriteMovies() })
+    }
+
+    override suspend fun addFavoriteMovie(entity: MovieEntity): Flow<DataResource<Long>> = flow {
+        emit(proceed { movieLocalDataSource.addFavourite(entity) })
+    }
+
+    override suspend fun getFavoriteMovieById(id: Int?): Flow<DataResource<MovieEntity?>> = flow {
+        emit(proceed { movieLocalDataSource.getFavouriteMovieById(id) })
+    }
+
+    override suspend fun deleteFavoriteMovie(entity: MovieEntity): Flow<DataResource<Int>> = flow {
+        emit(proceed { movieLocalDataSource.deleteFavourite(entity) })
     }
 
 }
