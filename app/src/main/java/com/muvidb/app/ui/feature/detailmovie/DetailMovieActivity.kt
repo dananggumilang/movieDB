@@ -1,6 +1,8 @@
 package com.muvidb.app.ui.feature.detailmovie
 
 import androidx.core.content.ContextCompat
+import coil.load
+import com.muvidb.app.BuildConfig
 import com.muvidb.app.R
 import com.muvidb.app.base.arch.BaseActivity
 import com.muvidb.app.databinding.ActivityDetailMovieBinding
@@ -24,6 +26,16 @@ class DetailMovieActivity :
             currentMovie = movie
             viewModel.getFavouriteMovieById(movie.id)
             viewModel.getKeyMovieTrailer(movie.id)
+            binding.tvTitleDetail.text = movie.title
+            binding.tvRelease.text = "Release: "
+            binding.ivPosterDetail.load(BuildConfig.IMAGE_URL + movie.poster_path)
+            binding.tvReleaseDate.text = movie.release_date
+            binding.tvLanguage.text = "Language :"
+            binding.tvOriginalLanguage.text = movie.original_language
+            binding.tvOverviewMS.text = "Overview"
+            binding.tvDescriptionMS.text = movie.overview
+            binding.tvRatingResult.text = movie.vote_average.toString()
+            binding.tvVoteCount.text = movie.vote_count.toString()
         }
     }
 

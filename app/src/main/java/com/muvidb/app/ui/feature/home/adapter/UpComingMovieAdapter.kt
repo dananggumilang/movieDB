@@ -1,6 +1,7 @@
 package com.muvidb.app.ui.feature.home.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -8,7 +9,7 @@ import com.muvidb.app.BuildConfig
 import com.muvidb.app.databinding.ListItemMovieBinding
 import com.muvidb.app.ui.viewparam.MovieViewParam
 
-class UpComingMovieAdapter : RecyclerView.Adapter<UpComingMovieAdapter.UpComingMovieViewHolder>() {
+class UpComingMovieAdapter(private val listener: (View, MovieViewParam)-> Unit) : RecyclerView.Adapter<UpComingMovieAdapter.UpComingMovieViewHolder>() {
 
     private val items = mutableListOf<MovieViewParam>()
 
@@ -19,9 +20,10 @@ class UpComingMovieAdapter : RecyclerView.Adapter<UpComingMovieAdapter.UpComingM
     }
 
     inner class UpComingMovieViewHolder(private val binding : ListItemMovieBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bindItem(movieViewParam: MovieViewParam) {
+        fun bindItem(movieViewParam: MovieViewParam, listener: (View, MovieViewParam) -> Unit) {
             binding.itemMovieName.text = movieViewParam.title
             binding.itemMovieImage.load(BuildConfig.IMAGE_URL + movieViewParam.poster_path)
+            binding.itemMovieCard.setOnClickListener {listener(it, movieViewParam)}
         }
     }
 
@@ -30,7 +32,7 @@ class UpComingMovieAdapter : RecyclerView.Adapter<UpComingMovieAdapter.UpComingM
     }
 
     override fun onBindViewHolder(holder: UpComingMovieViewHolder, position: Int) {
-        holder.bindItem(items[position])
+        holder.bindItem(items[position], listener)
     }
 
     override fun getItemCount(): Int {

@@ -6,7 +6,6 @@ import com.muvidb.app.base.arch.BaseActivity
 import com.muvidb.app.databinding.ActivityHomeBinding
 import com.muvidb.app.ui.feature.detailmovie.DetailMovieActivity
 import com.muvidb.app.ui.feature.favoritemovies.ui.FavoriteMoviesActivity
-import com.muvidb.app.ui.feature.genreslist.GenresListActivity
 import com.muvidb.app.ui.feature.home.adapter.PlayingMovieAdapter
 import com.muvidb.app.ui.feature.home.adapter.PopularMovieAdapter
 import com.muvidb.app.ui.feature.home.adapter.UpComingMovieAdapter
@@ -17,8 +16,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(ActivityHo
 
     override val viewModel: HomeViewModel by viewModel()
     private lateinit var playingMovieAdapter: PlayingMovieAdapter
-    private val popularMovieAdapter = PopularMovieAdapter()
-    private val upComingMovieAdapter = UpComingMovieAdapter()
+    private lateinit var popularMovieAdapter : PopularMovieAdapter
+    private lateinit var upComingMovieAdapter : UpComingMovieAdapter
 
     override fun initData() {
         viewModel.getPlayingMovies()
@@ -37,6 +36,18 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(ActivityHo
     private fun setRecyclerView() {
 
         playingMovieAdapter = PlayingMovieAdapter { v, items ->
+            val intent = Intent(this, DetailMovieActivity::class.java)
+            intent.putExtra("MOVIE_ITEM", items)
+            startActivity(intent)
+        }
+
+        popularMovieAdapter = PopularMovieAdapter { v, items ->
+            val intent = Intent(this, DetailMovieActivity::class.java)
+            intent.putExtra("MOVIE_ITEM", items)
+            startActivity(intent)
+        }
+
+        upComingMovieAdapter = UpComingMovieAdapter { v, items ->
             val intent = Intent(this, DetailMovieActivity::class.java)
             intent.putExtra("MOVIE_ITEM", items)
             startActivity(intent)
